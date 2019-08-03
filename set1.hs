@@ -22,5 +22,6 @@ randLetter :: Seed -> (Char , Seed)
 randLetter seed =   let (key,nextseed) = rand seed
                     in ((toLetter key),nextseed)
 
-randString3 :: String
-randString3 = foldr ((:).toLetter) [] $ loopRandsbynum 3 1
+--have not used the function(randLetter)                  
+randString2 :: String
+randString2 = foldr ((:).toLetter) [] $ loopRandsbynum 3 1
