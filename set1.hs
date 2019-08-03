@@ -43,18 +43,36 @@ loopRandsbychar acc key =   let (nextkey,seed) = rand $ mkSeed key
 --}
 
 --More Generators
+----fisrt
 randbyfunction :: (Integer -> a) -> Integer -> a
 randbyfunction f key =  let (nextkey,_) = rand $ mkSeed key
                         in  f nextkey
 
-randEven :: Integer
-randEven = randbyfunction (*2) 1
+randEven1 :: Integer
+randEven1 = randbyfunction (*2) 1
 
-randOdd :: Integer
-randOdd = randbyfunction (+1).(*2) $ 1
+randOdd1 :: Integer
+randOdd1 = randbyfunction (+1).(*2) $ 1
 
-randTen :: Integer
-randTen = randbyfunction (*10) 1
+randTen1 :: Integer
+randTen1 = randbyfunction (*10) 1
+
+treeproduct1 :: Integer
+treeproduct1 = randEven1 * randOdd1 * randTen1
+----second
+type Gen a = Seed -> (a , Seed)
+generalA :: (a -> b) -> Gen a -> Gen b
+generalA f gena =   (\(a , b) -> (f a , b)) . gena
+
+randEven :: Gen Integer
+randEven = generalA (*2) rand
+
+randOdd :: Gen Integer
+randOdd = generalA (+1) randEven
+
+randTen :: Gen Integer
+randTen =  generalA (*10) rand
 
 treeproduct :: Integer
-treeproduct = randEven * randOdd * randTen
+treeproduct =   let key = mkSeed 1
+                in (fst.randEven $ key) * (fst.randOdd $ key) * (fst.randTen $ key)
