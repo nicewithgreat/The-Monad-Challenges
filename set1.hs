@@ -9,7 +9,7 @@ fiveRands :: [Integer]
 fiveRands = loopRandsbynum 5 1
 
 fiveproduct :: Integer
-fiveproduct = foldl (*) 1 fiveRands 
+fiveproduct = foldl (*) 1 fiveRands
 
 loopRandsbynum :: Integer -> Integer -> [Integer]
 loopRandsbynum 0 _ = []
