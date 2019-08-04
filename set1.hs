@@ -90,7 +90,7 @@ generalB f randa randb seed =   (f a b , seed2)
                                 (b,seed2) = randb seed1
 
 generalPair2 = generalB (\a b -> (a , b))
-
+--
 --Generalizing Lists of Generators
 repRandom :: [Gen a] -> Gen [a]
 repRandom []  s = ([],s)
