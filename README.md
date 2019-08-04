@@ -9,7 +9,7 @@ now :
   - [x] Random character generation
   - [x] More generators
   - [x] Generalizing random pairs
-  - [ ] Generalizing lists of generators
+  - [x] Generalizing lists of generators
   - [ ] Threading the random number state
 - [ ] Failing Computations
 - [ ] Combinations
