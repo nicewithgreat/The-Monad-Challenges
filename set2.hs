@@ -70,8 +70,28 @@ chain f ma = case ma of
 link :: Maybe a -> (a -> Maybe b) -> Maybe b
 link = flip chain
 
+{--
 queryGreek2 :: GreekData -> String -> Maybe Double
-queryGreek2 gd key = link jh (link jm divMay.fromIntegral $ ).fromIntegral $
+queryGreek2 gd key = link jh ( (link jm ((divMay.fromIntegral) $) ).fromIntegral $)
     where   xs = lookupMay key gd
             jm = link (link xs tailMay) maximumMay
             jh = link xs headMay
+--}
+queryGreek2 :: GreekData -> String -> Maybe Double
+queryGreek2 d s = chain (\m -> chain (divMay (fromIntegral m) . fromIntegral) mh) mm
+    where xs = lookupMay s d
+          mm = chain maximumMay . chain tailMay $ xs
+          mh = chain headMay xs
+
+--Chaining variations
+mkMaybe :: a -> Maybe a
+mkMaybe = Just
+
+yLink :: Maybe a -> Maybe b -> (a -> b ->  c) -> Maybe c
+yLink ma mb f = link ma (\a -> (link mb (mkMaybe.f a)) )
+--chain (\a -> chain (f a) mb) ma
+
+addSalaries2 :: [(String, Integer)] -> String -> String -> Maybe Integer
+addSalaries2 xs n1 n2 = yLink s1 s2 (+)
+    where   s1 = lookupMay n1 xs
+            s2 = lookupMay n2 xs
