@@ -82,4 +82,11 @@ randPair :: Gen (Char , Integer)
 randPair = (\(a,b) -> ((a , fst $ rand b) , snd $ rand b)) . randLetter
 
 generalPair :: Gen a -> Gen b -> Gen(a,b)
-generalPair randa randb = (\(key,seed) -> ((key , fst $ randb seed) , snd $ randb seed)) . randa
+generalPair randa randb = ( \(key,seed) -> ((key , fst $ randb seed) , snd $ randb seed) ) . randa
+
+generalB :: (a -> b -> c) -> Gen a -> Gen b -> Gen c
+generalB f randa randb seed =   (f a b , seed2)
+                        where   (a,seed1) = randa seed
+                                (b,seed2) = randb seed1
+
+generalPair2 = generalB (\a b -> (a , b))                    
