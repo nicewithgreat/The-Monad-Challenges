@@ -1,4 +1,3 @@
-
 {-# LANGUAGE MonadComprehensions #-}
 {-# LANGUAGE RebindableSyntax  #-}
 
@@ -44,7 +43,7 @@ loopRandsbychar acc key =   let (nextkey,seed) = rand $ mkSeed key
 --}
 
 --More Generators
-----fisrt
+----before
 randbyfunction :: (Integer -> a) -> Integer -> a
 randbyfunction f key =  let (nextkey,_) = rand $ mkSeed key
                         in  f nextkey
@@ -60,7 +59,7 @@ randTen1 = randbyfunction (*10) 1
 
 treeproduct1 :: Integer
 treeproduct1 = randEven1 * randOdd1 * randTen1
-----second
+----after
 type Gen a = Seed -> (a , Seed)
 generalA :: (a -> b) -> Gen a -> Gen b
 generalA f gena =   (\(a , b) -> (f a , b)) . gena
@@ -77,3 +76,10 @@ randTen =  generalA (*10) rand
 treeproduct :: Integer
 treeproduct =   let key = mkSeed 1
                 in (fst.randEven $ key) * (fst.randOdd $ key) * (fst.randTen $ key)
+
+--Generalizing Random Pairs
+randPair :: Gen (Char , Integer)
+randPair = (\(a,b) -> ((a , fst $ rand b) , snd $ rand b)) . randLetter
+
+generalPair :: Gen a -> Gen b -> Gen(a,b)
+generalPair randa randb = (\(key,seed) -> ((key , fst $ randb seed) , snd $ randb seed)) . randa
