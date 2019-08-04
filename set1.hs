@@ -89,4 +89,13 @@ generalB f randa randb seed =   (f a b , seed2)
                         where   (a,seed1) = randa seed
                                 (b,seed2) = randb seed1
 
-generalPair2 = generalB (\a b -> (a , b))                    
+generalPair2 = generalB (\a b -> (a , b))
+
+--Generalizing Lists of Generators
+repRandom :: [Gen a] -> Gen [a]
+repRandom [g] s = ([a],ss)
+            where (a,ss) = g s
+repRandom (g:gx) seed = (a:ax , ss)
+                where   (a,s) = g seed
+                        (ax,ss) = repRandom gx s
+
