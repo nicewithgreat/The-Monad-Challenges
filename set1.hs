@@ -93,9 +93,17 @@ generalPair2 = generalB (\a b -> (a , b))
 
 --Generalizing Lists of Generators
 repRandom :: [Gen a] -> Gen [a]
+repRandom []  s = ([],s)
 repRandom [g] s = ([a],ss)
             where (a,ss) = g s
 repRandom (g:gx) seed = (a:ax , ss)
                 where   (a,s) = g seed
                         (ax,ss) = repRandom gx s
 
+--Threading the random number state
+getTwo :: Gen a -> (a -> Gen b) -> Gen b
+getTwo ga f seed = f a s
+            where (a,s) = ga seed
+        
+mkGen :: a -> Gen a
+mkGen m = (\(a , b) -> (m , b)) . rand
