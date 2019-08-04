@@ -12,10 +12,10 @@ now :
   - [x] Generalizing lists of generators
   - [x] Threading the random number state
 - [ ] Failing Computations
-  - [ ] The Maybe type
-  - [ ] Build a library of things that can fail
-  - [ ] Chains of failing computations
-  - [ ] Generalizing chains of failures
+  - [x] The Maybe type
+  - [x] Build a library of things that can fail
+  - [x] Chains of failing computations
+  - [x] Generalizing chains of failures
   - [ ] Chaining variations
   - [ ] Tailprod
 - [ ] Combinations
