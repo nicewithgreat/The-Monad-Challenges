@@ -60,3 +60,18 @@ queryGreek gd key = case lookupMay key gd of
             Nothing -> Nothing
         Nothing -> Nothing
     Nothing -> Nothing
+
+--Generalizing chains of failures
+chain :: (a -> Maybe b) -> Maybe a -> Maybe b
+chain f ma = case ma of 
+    Just a -> f a
+    Nothing -> Nothing
+
+link :: Maybe a -> (a -> Maybe b) -> Maybe b
+link = flip chain
+
+queryGreek2 :: GreekData -> String -> Maybe Double
+queryGreek2 gd key = link jh (link jm divMay.fromIntegral $ ).fromIntegral $
+    where   xs = lookupMay key gd
+            jm = link (link xs tailMay) maximumMay
+            jh = link xs headMay
