@@ -1,4 +1,4 @@
-```haskell
+
 {-# LANGUAGE MonadComprehensions #-}
 {-# LANGUAGE RebindableSyntax  #-}
 
@@ -77,5 +77,3 @@ randTen =  generalA (*10) rand
 treeproduct :: Integer
 treeproduct =   let key = mkSeed 1
                 in (fst.randEven $ key) * (fst.randOdd $ key) * (fst.randTen $ key)
-
-```                
