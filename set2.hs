@@ -5,6 +5,7 @@ module Set2 where
 
 import MCPrelude
 
+
 --The Maybe Type
 data Maybe a = Nothing | Just a
 
@@ -47,3 +48,15 @@ minimumMay [] = Nothing
 minimumMay [a] = Just a
 minimumMay (a:b:cx) | a < b = minimumMay (a:cx)
                     | otherwise = minimumMay (b:cx)
+
+--Chains of Failing Computations
+queryGreek :: GreekData -> String -> Maybe Double
+queryGreek gd key = case lookupMay key gd of
+    Just xs -> case tailMay xs of
+        Just tx -> case maximumMay tx of
+            Just m -> case headMay xs of
+                Just h -> divMay (fromIntegral m) (fromIntegral h)
+                Nothing -> Nothing
+            Nothing -> Nothing
+        Nothing -> Nothing
+    Nothing -> Nothing
