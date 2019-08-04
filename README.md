@@ -12,6 +12,28 @@ now :
   - [x] Generalizing lists of generators
   - [x] Threading the random number state
 - [ ] Failing Computations
+  - [ ] The Maybe type
+  - [ ] Build a library of things that can fail
+  - [ ] Chains of failing computations
+  - [ ] Generalizing chains of failures
+  - [ ] Chaining variations
+  - [ ] Tailprod
 - [ ] Combinations
+  - [ ] Generating combinations
+  - [ ] Poker hands
+  - [ ] Generalizing pairs and cards
+  - [ ] Combinations of three things
+  - [ ] Combinations of more things
 - [ ] Common Abstraction
+  - [ ] Generalizing State and Maybe
+  - [ ] A missed generalization
+  - [ ] Formalizing the pattern
+  - [ ] Creating instances
+  - [ ] Revisiting other generic functions
+  - [ ] Using the abstraction
 - [ ] Do Notation
+  - [ ] Do notation
+  - [ ] Do notation – operators
+  - [ ] Do notation – set 1
+  - [ ] Do notation – set 2
+  - [ ] Do notation – set 3
