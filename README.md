@@ -11,13 +11,13 @@ now :
   - [x] Generalizing random pairs
   - [x] Generalizing lists of generators
   - [x] Threading the random number state
-- [ ] Failing Computations
+- [x] Failing Computations
   - [x] The Maybe type
   - [x] Build a library of things that can fail
   - [x] Chains of failing computations
   - [x] Generalizing chains of failures
-  - [ ] Chaining variations
-  - [ ] Tailprod
+  - [x] Chaining variations
+  - [x] Tailprod
 - [ ] Combinations
   - [ ] Generating combinations
   - [ ] Poker hands
