@@ -99,16 +99,23 @@ addSalaries2 xs n1 n2 = yLink s1 s2 (+)
 --Tailprod
 tailProd :: Num a => [a] -> Maybe a
 tailProd = transMaybe product . tailMay
+--tailMay :: [a] -> Maybe [a]
+--product :: (Num a, Data.Foldable.Foldable t) => t a -> a
+--transMaybe :: (a -> b) -> Maybe a -> Maybe b--..wow..
 
 tailSum :: Num a => [a] -> Maybe a
 tailSum = transMaybe sum . tailMay
 
 transMaybe :: (a -> b) -> Maybe a -> Maybe b
-transMaybe f  = mkMaybe.f $ a 
-{--
-tailMax :: Num a => [a] -> Maybe (Maybe a)
-tailMax = transMaybe maximumMay . tailMay
+transMaybe f (Just a) = mkMaybe.f $ a 
 
-tailMin :: Num a => [a] -> Maybe (Maybe a)
+tailMax :: Ord a => [a] -> Maybe (Maybe a)
+tailMax = transMaybe maximumMay . tailMay
+--tailMay :: [a] -> Maybe [a]
+--maximumMay :: Ord a => [a] -> Maybe a
+tailMin :: Ord a => [a] -> Maybe (Maybe a)
 tailMin = transMaybe minimumMay . tailMay
---}
+
+combine :: Maybe (Maybe a) -> Maybe a
+combine (Just a) = a
+combine _ = Nothing
