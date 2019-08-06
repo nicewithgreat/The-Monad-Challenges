@@ -18,12 +18,12 @@ now :
   - [x] Generalizing chains of failures
   - [x] Chaining variations
   - [x] Tailprod
-- [ ] Combinations
-  - [ ] Generating combinations
-  - [ ] Poker hands
-  - [ ] Generalizing pairs and cards
-  - [ ] Combinations of three things
-  - [ ] Combinations of more things
+- [x] Combinations
+  - [x] Generating combinations
+  - [x] Poker hands
+  - [x] Generalizing pairs and cards
+  - [x] Combinations of three things
+  - [x] Combinations of more things
 - [ ] Common Abstraction
   - [ ] Generalizing State and Maybe
   - [ ] A missed generalization
