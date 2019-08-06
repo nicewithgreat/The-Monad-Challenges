@@ -24,6 +24,9 @@ allCombs :: (a -> b -> c) -> [a] -> [b] -> [c]
 allCombs f (a:ax) bx = foldr (\b-> (:) (f a b)) (allCombs f ax bx) bx
 allCombs _ _ _ = []
 
+allPairs' = allCombs (,)
+allCards' = allCombs Card
+
 --Combinations of three things
 allCombs3 :: (a -> b -> c -> d) -> [a] -> [b] -> [c] -> [d]
 allCombs3 f ax bx cx = allCombs ($) (allCombs f ax bx) cx
@@ -33,8 +36,8 @@ combStep :: [a -> b] -> [a] -> [b]
 combStep (f:fx) ax = foldr (\a-> (:) (f a)) (combStep fx ax) ax
 combStep _ _ = []
 
-allCombsa :: (a -> b -> c) -> [a] -> [b] -> [c]
-allCombsa f ax bx = combStep (combStep [f] ax) bx
+allCombs' :: (a -> b -> c) -> [a] -> [b] -> [c]
+allCombs' f ax bx = combStep (combStep [f] ax) bx
 
-allCombs3a :: (a -> b -> c -> d) -> [a] -> [b] -> [c] -> [d]
-allCombs3a f ax bx cx = combStep (combStep (combStep [f] ax) bx) cx
+allCombs3' :: (a -> b -> c -> d) -> [a] -> [b] -> [c] -> [d]
+allCombs3' f ax bx cx = combStep (combStep (combStep [f] ax) bx) cx
