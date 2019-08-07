@@ -25,11 +25,11 @@ now :
   - [x] Combinations of three things
   - [x] Combinations of more things
 - [ ] Common Abstraction
-  - [ ] Generalizing State and Maybe
-  - [ ] A missed generalization
-  - [ ] Formalizing the pattern
-  - [ ] Creating instances
-  - [ ] Revisiting other generic functions
+  - [x] Generalizing State and Maybe
+  - [x] A missed generalization
+  - [x] Formalizing the pattern
+  - [x] Creating instances
+  - [x] Revisiting other generic functions
   - [ ] Using the abstraction
 - [ ] Do Notation
   - [ ] Do notation
