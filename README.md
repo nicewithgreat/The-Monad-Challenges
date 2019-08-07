@@ -24,13 +24,13 @@ now :
   - [x] Generalizing pairs and cards
   - [x] Combinations of three things
   - [x] Combinations of more things
-- [ ] Common Abstraction
+- [x] Common Abstraction
   - [x] Generalizing State and Maybe
   - [x] A missed generalization
   - [x] Formalizing the pattern
   - [x] Creating instances
   - [x] Revisiting other generic functions
-  - [ ] Using the abstraction
+  - [x] Using the abstraction
 - [ ] Do Notation
   - [ ] Do notation
   - [ ] Do notation – operators
