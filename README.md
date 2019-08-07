@@ -1,5 +1,5 @@
 # The-Monad-Challenges
-The Monad Challenges(ing~)
+The Monad Challenges(finish)
 
 the challenges from this website  :   http://mightybyte.github.io/monad-challenges/
 
@@ -31,9 +31,9 @@ now :
   - [x] Creating instances
   - [x] Revisiting other generic functions
   - [x] Using the abstraction
-- [ ] Do Notation
-  - [ ] Do notation
-  - [ ] Do notation – operators
-  - [ ] Do notation – set 1
-  - [ ] Do notation – set 2
-  - [ ] Do notation – set 3
+- [x] Do Notation
+  - [x] Do notation
+  - [x] Do notation – operators
+  - [x] Do notation – set 1
+  - [x] Do notation – set 2
+  - [x] Do notation – set 3
