@@ -105,3 +105,12 @@ getTwo ga f seed = f a s
         
 mkGen :: a -> Gen a
 mkGen m = (\(a , b) -> (m , b)) . rand
+
+--set4
+generalB2 :: (a -> b -> c) -> Gen a -> Gen b -> Gen c
+generalB2 f ga gb = getTwo ga (\a-> getTwo gb (mkGen.f a))
+--generalA :: (a -> b) -> Gen a -> Gen b
+repRandom2 :: [Gen a] -> Gen [a]
+repRandom2 (a:ga) = getTwo a ( \x -> generalA (\l -> (:) x l) (repRandom2 ga) )
+repRandom2 _ = mkGen []
+
