@@ -37,3 +37,6 @@ now :
   - [x] Do notation – set 1
   - [x] Do notation – set 2
   - [x] Do notation – set 3
+
+![Image text]
+(https://github.com/nicewithgreat/The-Monad-Challenges/blob/master/HASKELL%20EXPERIENCE.jpg)
